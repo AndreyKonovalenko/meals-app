@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const FiltersScreen = props => {
-  renter(
+  return (
     <View style={styles.screen}>
       <Text>The Filters Screen!</Text>
     </View>

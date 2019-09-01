@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const CategoriesScreen = props => {
-  renter(
+  return (
     <View style={styles.screen}>
       <Text>The Categories Screen!</Text>
     </View>

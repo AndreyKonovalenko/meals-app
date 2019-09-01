@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const MealDetailScreen = props => {
-  renter(
+  return (
     <View style={styles.screen}>
       <Text>The Meal Detail Screen!</Text>
     </View>
