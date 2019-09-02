@@ -6,7 +6,7 @@ import MealDetailScreen from '../screens/MealDetailScreen';
 
 const MealsNavigator = createStackNavigator({
   Catigories: CategoriesScreens,
-  CategoryVeals: {
+  CategoryMeals: {
     screen: CategoryMealsScreen
   }, // longer form
   MealDetail: MealDetailScreen
