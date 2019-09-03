@@ -1,28 +1,36 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground
+} from 'react-native';
 
 const MealItem = props => {
   return (
     <View style={styles.mealItem}>
-    <TouchableOpacity onPress={props.onSelectMeal}>
-      <View>
-        <View style={{...styles.mealRow, ...styles.mealHeader}}>
-          <ImageBackground source={{uri: props.image}} style={styles.bgImage}>
-          <View style={styles.titleContainer}>
-            <Text style={styles.title} numberOflines={1}>{props.title}</Text>
+      <TouchableOpacity onPress={props.onSelectMeal}>
+        <View>
+          <View style={{...styles.mealRow, ...styles.mealHeader}}>
+            <ImageBackground source={{uri: props.image}} style={styles.bgImage}>
+              <View style={styles.titleContainer}>
+                <Text style={styles.title} numberOflines={1}>
+                  {props.title}
+                </Text>
+              </View>
+            </ImageBackground>
           </View>
-          </ImageBackground>
+          <View style={{...styles.mealRow, ...styles.mealDetail}}>
+            <Text>{props.duration}m</Text>
+            <Text>{props.complexity.toUpperCase()}</Text>
+            <Text>{props.affordability.toUpperCase()}</Text>
+          </View>
         </View>
-        <View style={{...styles.mealRow, ...styles.mealDetail}}>
-          <Text>{props.duration}m</Text>
-          <Text>{props.complexity.toUpperCase()}</Text>
-          <Text>{props.affordability.toUpperCase()}</Text>
-        </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   mealItem: {
@@ -40,7 +48,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     backgroundColor: 'rgba(0,0,0,0.6)',
     paddingVertical: 5,
-    paddingHorizontal: 12,
+    paddingHorizontal: 12
   },
 
   title: {
