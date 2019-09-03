@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
 import * as Font from 'expo-font';
-import {AppLoading} from 'expo';
+import { AppLoading } from 'expo';
 import MealsNavigator from './src/navigation/MealsNavigator';
-import {useScreens} from 'react-native-screens';
+import { useScreens } from 'react-native-screens';
 
 useScreens();
 
@@ -29,3 +29,4 @@ export default function App() {
 
   return <MealsNavigator />;
 }
+//test
