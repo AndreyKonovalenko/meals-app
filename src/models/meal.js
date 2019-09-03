@@ -29,4 +29,4 @@ class Meal {
   }
 }
 
-export default Meal();
+export default Meal;
