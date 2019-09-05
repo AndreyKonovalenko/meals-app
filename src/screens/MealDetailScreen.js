@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import { MEALS } from '../data/dummy-data';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import {View, Text, StyleSheet, Button} from 'react-native';
+import {MEALS} from '../data/dummy-data';
+import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 
 const MealDetailScreen = props => {
@@ -30,9 +30,10 @@ MealDetailScreen.navigationOptions = navigationData => {
         <Item
           title='Favorite'
           iconName='ios-star'
-          onPress={()=>console.log('Mark as favorite!')}
-          />
-      </HeaderButtons>)
+          onPress={() => console.log('Mark as favorite!')}
+        />
+      </HeaderButtons>
+    )
   };
 };
 

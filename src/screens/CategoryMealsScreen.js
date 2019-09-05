@@ -1,5 +1,5 @@
 import React from 'react';
-import { CATEGORIES, MEALS } from '../data/dummy-data';
+import {CATEGORIES, MEALS} from '../data/dummy-data';
 import MealItem from '../components/MealItem';
 import MealList from '../components/MealList';
 
@@ -11,7 +11,7 @@ const CategoryMealsScreen = props => {
   );
 
   return (
-    <MealList listDataArray={displayedMeals} navigation={props.navigation}/>
+    <MealList listDataArray={displayedMeals} navigation={props.navigation} />
   );
 };
 
@@ -22,7 +22,5 @@ CategoryMealsScreen.navigationOptions = navigationData => {
     headerTitle: selectedCategory.title
   };
 };
-
-
 
 export default CategoryMealsScreen;
