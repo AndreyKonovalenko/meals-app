@@ -1,15 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, ScrollView, Image } from 'react-native';
-import { MEALS } from '../data/dummy-data';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import {View, Text, StyleSheet, Button, ScrollView, Image} from 'react-native';
+import {MEALS} from '../data/dummy-data';
+import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import DefaultText from '../components/DefaultText';
 
 const ListItem = props => {
-  return (<View style={styles.listItem}>
-    <DefaultText>{props.children}</DefaultText>
-    </View>);
-}
+  return (
+    <View style={styles.listItem}>
+      <DefaultText>{props.children}</DefaultText>
+    </View>
+  );
+};
 
 const MealDetailScreen = props => {
   const mealId = props.navigation.getParam('mealId');
@@ -17,16 +19,20 @@ const MealDetailScreen = props => {
 
   return (
     <ScrollView>
-    <Image source={{uri: selectedMeal.imageUrl}} style={styles.image}/>
+      <Image source={{uri: selectedMeal.imageUrl}} style={styles.image} />
       <View style={styles.details}>
         <DefaultText>{selectedMeal.duration}m</DefaultText>
         <DefaultText>{selectedMeal.complexity.toUpperCase()}</DefaultText>
         <DefaultText>{selectedMeal.affordability.toUpperCase()}</DefaultText>
       </View>
       <Text style={styles.title}>Ingredients</Text>
-      {selectedMeal.ingredients.map(element => <ListItem key={element}>{element}</ListItem>)}
+      {selectedMeal.ingredients.map(element => (
+        <ListItem key={element}>{element}</ListItem>
+      ))}
       <Text style={styles.title}>Steps</Text>
-      {selectedMeal.steps.map(element => <ListItem key={element}>{element}</ListItem>)}
+      {selectedMeal.steps.map(element => (
+        <ListItem key={element}>{element}</ListItem>
+      ))}
     </ScrollView>
   );
 };
@@ -70,7 +76,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10
   }
-
 });
 
 export default MealDetailScreen;
