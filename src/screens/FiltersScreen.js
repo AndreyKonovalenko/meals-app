@@ -1,8 +1,13 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {View, Text, StyleSheet, Switch, Platform} from 'react-native';
 import {HeaderButtons, Item} from 'react-navigation-header-buttons';
+
+import {useDispatch} from 'react-redux';
+
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import Colors from '../constants/Colors';
+
+import {setFilters} from '../store/actions/mealsActions';
 
 const FilterSwitch = props => {
   return (
@@ -25,15 +30,17 @@ const FiltersScreen = props => {
   const [isVegan, setVegan] = useState(false);
   const [isVegetarian, setVegetarian] = useState(false);
 
+  const dispatch = useDispatch();
+
   const saveFilters = useCallback(() => {
     const appliedFilters = {
       glutenFree: isGlutenFree,
       lactoseFree: isLactoseFree,
-      vigan: isVegan,
+      vegan: isVegan,
       vegetarian: isVegetarian
     };
-    console.log(appliedFilters);
-  }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian]);
+    dispatch(setFilters(appliedFilters));
+  }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian, dispatch]);
 
   // Pattern of passing data between Component state and Navigation (Header) ruled by react-navigation library
   useEffect(() => {
