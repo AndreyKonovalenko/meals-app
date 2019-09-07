@@ -1,16 +1,23 @@
 import React from 'react';
 import MealList from '../components/MealList';
+import {View, StyleSheet} from 'react-native';
 
 import {useSelector} from 'react-redux';
 import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 import CustomHeaderButton from '../components/CustomHeaderButton';
-
+import DefaultText from '../components/DefaultText';
 const FavoritesScreen = props => {
-  const availableMeals = useSelector(state => state.meals.favoriteMeals);
+  const favMeals = useSelector(state => state.meals.favoriteMeals);
 
-  return (
-    <MealList listDataArray={availableMeals} navigation={props.navigation} />
-  );
+  if (favMeals.length === 0 || !favMeals) {
+    return (
+      <View style={styles.content}>
+        <DefaultText>No favorite meals found. </DefaultText>
+        <DefaultText>Start adding some!</DefaultText>
+      </View>
+    );
+  }
+  return <MealList listDataArray={favMeals} navigation={props.navigation} />;
 };
 
 FavoritesScreen.navigationOptions = navData => {
@@ -29,5 +36,13 @@ FavoritesScreen.navigationOptions = navData => {
     )
   };
 };
+
+const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
 
 export default FavoritesScreen;
