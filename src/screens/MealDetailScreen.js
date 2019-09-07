@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Button, ScrollView, Image} from 'react-native';
 
 import {HeaderButtons, Item} from 'react-navigation-header-buttons';
@@ -8,17 +8,21 @@ import DefaultText from '../components/DefaultText';
 import {useSelector} from 'react-redux';
 
 const ListItem = props => {
-  const availableMeals = useSelector(state => state.meals.meals);
-
   return (
     <View style={styles.listItem}>
       <DefaultText>{props.children}</DefaultText>
     </View>
   );
 };
+
 const MealDetailScreen = props => {
+  const availableMeals = useSelector(state => state.meals.meals);
   const mealId = props.navigation.getParam('mealId');
   const selectedMeal = availableMeals.find(element => element.id === mealId);
+
+  // useEffect(() => {
+  //   props.navigation.setParams({mealTitle: selectedMeal.title});
+  // }, [selectedMeal]);
 
   return (
     <ScrollView>
@@ -41,10 +45,11 @@ const MealDetailScreen = props => {
 };
 
 MealDetailScreen.navigationOptions = navigationData => {
-  const mealId = navigationData.navigation.getParam('mealId');
-  const selectedMeal = MEALS.find(element => element.id === mealId);
+  //const mealId = navigationData.navigation.getParam('mealId');
+  const mealTitle = navigationData.navigation.getParam('mealTitle');
+  //const selectedMeal = MEALS.find(element => element.id === mealId);
   return {
-    headerTitle: selectedMeal.title,
+    headerTitle: mealTitle,
     headerRight: (
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
