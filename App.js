@@ -7,12 +7,12 @@ import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 
 import MealsNavigator from './src/navigation/MealsNavigator';
-import mealsReduser from './src/store/reducers/meals';
+import mealsReducer from './src/store/reducers/mealsReducer';
 
 useScreens();
 
 const rootReducer = combineReducers({
-  meals: mealsReduser
+  meals: mealsReducer
 });
 const store = createStore(rootReducer);
 
